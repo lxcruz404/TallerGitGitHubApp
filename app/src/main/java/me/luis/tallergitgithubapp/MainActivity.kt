@@ -5,48 +5,56 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
-import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import me.luis.tallergitgithubapp.ui.theme.TallerGitGitHubAppTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
         setContent {
             TallerGitGitHubAppTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Perfil(
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                Perfil()
             }
         }
     }
 }
 
 @Composable
-fun Perfil(modifier: Modifier = Modifier) {
+fun Perfil() {
     Column(
-        modifier = modifier.fillMaxSize(),
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color(0xFFF5F5F5))
+            .padding(20.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+
         Image(
             painter = painterResource(id = R.drawable.perfil),
             contentDescription = "Foto de perfil",
@@ -56,29 +64,43 @@ fun Perfil(modifier: Modifier = Modifier) {
             contentScale = ContentScale.Crop
         )
 
+        Spacer(modifier = Modifier.size(15.dp))
+
         Text(
-            text = "Luis Cruz"
+            text = "Luis Cruz",
+            fontSize = 26.sp,
+            fontWeight = FontWeight.Bold
         )
 
         Text(
-            text = "Ingeniería de Sistemas"
+            text = "Ingeniería de Sistemas",
+            fontSize = 17.sp,
+            color = Color(0xFF2E7D32)
         )
 
-        Text(
-            text = "19 años"
-        )
+        Spacer(modifier = Modifier.size(15.dp))
+
+        Card(
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(15.dp)
+        ) {
+            Column(
+                modifier = Modifier.padding(15.dp)
+            ) {
+                Text(text = "Edad: 19 años")
+                Text(text = "Correo: lcruz289@unab.edu.co")
+                Text(text = "Ciudad: Bucaramanga")
+            }
+        }
+
+        Spacer(modifier = Modifier.size(15.dp))
 
         Text(
-            text = "lcruz289@unab.edu.co"
+            text = "Me interesa el desarrollo de software, las aplicaciones móviles, la inteligencia artificial y las nuevas tecnologías.",
+            fontSize = 15.sp
         )
 
-        Text(
-            text = "Bucaramanga"
-        )
-
-        Text(
-            text = "Mis intereses académicos y profesionales están enfocados en el desarrollo de software, la inteligencia artificial, el desarrollo de aplicaciones y las tecnologías relacionadas con sistemas. Me interesa seguir fortaleciendo mis conocimientos para crear soluciones tecnológicas útiles e innovadoras."
-        )
+        Spacer(modifier = Modifier.size(15.dp))
 
         Button(
             onClick = { }
