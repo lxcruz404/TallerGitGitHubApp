@@ -58,6 +58,22 @@ fun Perfil(modifier: Modifier = Modifier) {
         Text(
             text = "Luis Cruz"
         )
+
+        Text(
+            text = "Ingeniería de Sistemas"
+        )
+
+        Text(
+            text = "19 años"
+        )
+
+        Text(
+            text = "lcruz289@unab.edu.co"
+        )
+
+        Text(
+            text = "Bucaramanga"
+        )
     }
 }
 
