@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -74,6 +75,16 @@ fun Perfil(modifier: Modifier = Modifier) {
         Text(
             text = "Bucaramanga"
         )
+
+        Text(
+            text = "Mis intereses académicos y profesionales están enfocados en el desarrollo de software, la inteligencia artificial, el desarrollo de aplicaciones y las tecnologías relacionadas con sistemas. Me interesa seguir fortaleciendo mis conocimientos para crear soluciones tecnológicas útiles e innovadoras."
+        )
+
+        Button(
+            onClick = { }
+        ) {
+            Text("Contactar conmigo")
+        }
     }
 }
 
